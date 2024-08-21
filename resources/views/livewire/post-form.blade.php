@@ -6,14 +6,14 @@
                 @csrf
                 <div>
                     <label for="title">Title</label>
-                    <input type="text" wire:model.live.throttle.150ms="title" class="w-full py-2 rounded">
+                    <input type="text" wire:model.live.throttle.50ms="title" class="w-full py-2 rounded">
                     @error('title')
                         <span class="text-red-600">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="mt-8">
                     <label class="block mb-2 text-xl">Description </label>
-                    <textarea wire:model.live.throttle.150ms="description" rows="3" cols="20" class="w-full rounded">
+                    <textarea wire:model.live.throttle.50ms="description" rows="3" cols="20" class="w-full rounded">
                 </textarea>
                     @error('description')
                         <span class="text-red-600">{{ $message }}</span>
@@ -61,7 +61,7 @@
                                         <div class="flex items-center">
                                             <div class="ml-4">
                                                 <div class="text-sm text-gray-900">
-                                                    {{ $post->id }}
+                                                    {{ $loop->index + 1 + ($posts->currentPage() - 1) * $posts->perPage() }}
                                                 </div>
                                             </div>
                                         </div>
