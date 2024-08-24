@@ -41,12 +41,11 @@ class PostForm extends Component
         $this->reset();
         $message = $this->post_id ? 'updated' : 'created';
 
-        // $this->dispatchBrowserEvent('swal', [
-        //     'title' => 'Post has been ' . $message . ' successfully.',
-        //     'icon' => 'success',
-        //     'iconColor' => 'blue',
-        // ]);
-
+        $this->dispatch('swal', [
+            'title' => 'Post has been ' . $message . ' successfully.',
+            'icon' => 'success',
+            'iconColor' => 'blue',
+        ]);
         $this->formUpdate = false;
     }
 
